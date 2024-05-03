@@ -9,6 +9,8 @@ public final class CoolTeleport extends JavaPlugin {
   
   @Getter
   private static CoolTeleport instance;
+  @Getter
+  private static Config coolConfig;
   
   @Override
   public void onLoad() {
@@ -19,6 +21,8 @@ public final class CoolTeleport extends JavaPlugin {
   public void onEnable() {
     instance = this;
     CommandAPI.onEnable();
+    coolConfig = new Config(this);
+    coolConfig.load();
     CoolTeleportCommand.getCoolTeleportCommand().register();
   }
   
