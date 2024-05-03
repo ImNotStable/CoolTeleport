@@ -1,0 +1,5 @@
+name: CoolTeleport
+version: '${version}'
+main: com.imnotstable.coolteleport.CoolTeleport
+api-version: '1.20'
+load: STARTUP
