@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
     implementation 'dev.jorel:commandapi-bukkit-shade:9.4.0'
     compileOnly 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
@@ -34,8 +34,8 @@ dependencies {
 }
 
 shadowJar {
-    exclude 'META-INF/**', 'LICENSE', 'module-info.class'
-    from '../LICENSE'
+    archiveFileName = 'CoolTeleport.jar'
+    relocate 'dev.jorel.commandapi', 'com.imnotstable.coolteleport.commandapi'
 }
 
 build {
