@@ -1,6 +1,7 @@
 package com.imnotstable.coolteleport;
 
 import dev.jorel.commandapi.CommandTree;
+import dev.jorel.commandapi.arguments.ArgumentSuggestions;
 import dev.jorel.commandapi.arguments.LocationArgument;
 import dev.jorel.commandapi.arguments.PlayerArgument;
 import lombok.Getter;
@@ -14,6 +15,7 @@ public class CoolTeleportCommand {
   private static final CommandTree coolTeleportCommand = new CommandTree("coolteleport")
     .withAliases("cooltp", "ctp")
     .then(new PlayerArgument("target")
+      .replaceSuggestions(ArgumentSuggestions.stringCollection(info -> Bukkit.getOnlinePlayers().stream().map(Player::getName).toList()))
       .executesPlayer((player, args) -> {
         if (args.get("target") instanceof Player target)
           teleport(player, target.getLocation());
